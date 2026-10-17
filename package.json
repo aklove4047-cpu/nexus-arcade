@@ -1,0 +1,13 @@
+{
+  "name": "nexus-arcade",
+  "version": "1.0.0",
+  "description": "800+ Free Playable HTML5 Games Portal",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s . -l $PORT",
+    "dev": "npx serve -s ."
+  },
+  "keywords": ["games", "arcade", "html5-games"],
+  "author": "",
+  "license": "MIT"
+}
