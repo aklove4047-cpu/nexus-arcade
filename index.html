@@ -157,13 +157,8 @@ header {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--green);
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.api-status-badge:hover {
-  background: rgba(16, 185, 129, 0.2);
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
+  cursor: default;
+  user-select: none;
 }
 
 .pulse-dot {
@@ -1136,24 +1131,19 @@ footer {
       </div>
       <div class="logo-text-wrap">
         <span class="logo-title">NEXUS ARCADE</span>
-        <span class="logo-sub">100% Free HTML5 Games API</span>
+        <span class="logo-sub">100% Free HTML5 Games</span>
       </div>
     </div>
 
     <div class="nav-controls">
-      <div class="api-status-badge" id="apiStatusBadge" onclick="openSettingsModal()" title="Click to view API settings">
+      <div class="api-status-badge" id="apiStatusBadge">
         <span class="pulse-dot"></span>
-        <span id="apiStatusText">Live API: Connected (838 Games)</span>
+        <span id="apiStatusText">Live: 838+ Games</span>
       </div>
 
       <button class="btn-header" id="favFilterBtn" onclick="toggleFavoritesView()">
         <svg style="width:14px;height:14px;fill:var(--pink)" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
         Favorites (<span id="favCount">0</span>)
-      </button>
-
-      <button class="btn-header" id="settingsBtn" onclick="openSettingsModal()" title="API Configuration">
-        <svg style="width:15px;height:15px;fill:currentColor" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-        API Key
       </button>
     </div>
   </div>
@@ -1290,51 +1280,7 @@ footer {
   </div>
 </div>
 
-<!-- ========================================================
-     API SETTINGS MODAL
-======================================================== -->
-<div class="settings-modal" id="settingsModal">
-  <div class="settings-card">
-    <div class="settings-header">
-      <div class="settings-title">
-        <svg style="width:22px;height:22px;fill:var(--cyan)" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
-        Game API Configuration
-      </div>
-      <button class="modal-btn close-btn" onclick="closeSettingsModal()">&times;</button>
-    </div>
 
-    <div class="settings-body">
-      <div class="api-features-list">
-        <strong>Status: Active & Free of Cost (No Credit Card / Zero Cost)</strong><br>
-        Currently connected to the official <strong>GameDistribution Open Catalog API</strong> providing <strong>830+ live HTML5 games</strong> with instant iframe embedding, high-res thumbnails, instructions, and multiple categories.
-      </div>
-
-      <div class="field-group">
-        <label for="apiUrlInput">Catalog API Feed URL</label>
-        <input type="text" id="apiUrlInput" class="field-input" value="https://catalog.api.gamedistribution.com/api/v2.0/rss/All/?collection=all&categories=all&tags=all&subType=all&type=all&format=json" spellcheck="false">
-      </div>
-
-      <div class="field-group">
-        <label for="apiKeyInput">Optional Publisher ID / Partner Key</label>
-        <input type="text" id="apiKeyInput" class="field-input" placeholder="e.g. your-publisher-id (Leave blank for default free public key)">
-      </div>
-
-      <div style="display:flex;gap:10px;">
-        <button class="btn-secondary" style="flex:1" onclick="fetchLiveCatalogOnline()">
-          🔄 Fetch Live Cloud API
-        </button>
-        <button class="btn-secondary" style="flex:1" onclick="resetDefaultApi()">
-          ↺ Reset Default Free API
-        </button>
-      </div>
-    </div>
-
-    <div class="settings-footer">
-      <button class="btn-secondary" onclick="closeSettingsModal()">Close</button>
-      <button class="btn-primary" onclick="saveSettings()">Save & Connect</button>
-    </div>
-  </div>
-</div>
 
 <!-- Toast Message -->
 <div class="toast" id="toast">Settings Saved</div>
@@ -1442,7 +1388,7 @@ function initCatalog() {
 function updateCatalogStats(count) {
   const badge = document.getElementById('apiStatusText');
   if (badge) {
-    badge.textContent = `Live API: Connected (${count}+ Games)`;
+    badge.textContent = `Live: ${count}+ Games`;
   }
 }
 
@@ -1820,17 +1766,19 @@ window.addEventListener('keydown', (e) => {
 ======================================================== */
 function openSettingsModal() {
   const modal = document.getElementById('settingsModal');
+  if (!modal) return;
   const storedUrl = localStorage.getItem(STORAGE_API_URL);
   const storedKey = localStorage.getItem(STORAGE_API_KEY);
 
-  if (storedUrl) document.getElementById('apiUrlInput').value = storedUrl;
-  if (storedKey) document.getElementById('apiKeyInput').value = storedKey;
+  if (storedUrl && document.getElementById('apiUrlInput')) document.getElementById('apiUrlInput').value = storedUrl;
+  if (storedKey && document.getElementById('apiKeyInput')) document.getElementById('apiKeyInput').value = storedKey;
 
   modal.classList.add('open');
 }
 
 function closeSettingsModal() {
-  document.getElementById('settingsModal').classList.remove('open');
+  const modal = document.getElementById('settingsModal');
+  if (modal) modal.classList.remove('open');
 }
 
 function saveSettings() {
