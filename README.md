@@ -11,7 +11,18 @@ A high-speed cyber-arcade gaming portal with 800+ playable browser games powered
 - **Free of Cost**: Open public syndication API with zero subscriptions or fees.
 
 ## 🌐 Deploy to Render
-1. Connect this GitHub repository on [Render](https://render.com).
-2. Choose **Static Site**.
-3. Set **Publish Directory** to `./` (or leave empty, `render.yaml` handles it automatically).
-4. Click **Create Static Site**!
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/aklove4047-cpu/nexus-arcade)
+
+### Option 1: 1-Click Blueprints Deploy (Fastest)
+Click the **Deploy to Render** button above, or open:
+👉 **https://render.com/deploy?repo=https://github.com/aklove4047-cpu/nexus-arcade**
+
+### Option 2: Manual Setup on Render Dashboard
+1. Log in to [Render Dashboard](https://dashboard.render.com).
+2. Click **New +** -> **Static Site**.
+3. Connect your GitHub repository: `aklove4047-cpu/nexus-arcade`.
+4. Leave **Build Command** empty.
+5. Set **Publish Directory** to `./` (Render will serve `index.html`).
+6. Click **Create Static Site** — your live URL will be ready in seconds!
+
